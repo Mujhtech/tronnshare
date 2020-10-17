@@ -24,6 +24,26 @@ class ReferralPagecreen extends StatelessWidget {
               padding: const EdgeInsets.only(
                 left: 20,
                 right: 20,
+                top: 5,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Referral ID: ' + currentUser.userModel.username,
+                    style: GoogleFonts.spartan(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 20,
+                right: 20,
                 top: 20,
               ),
               child: currentUser.referralList.length > 0

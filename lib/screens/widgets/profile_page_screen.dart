@@ -18,8 +18,6 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
   @override
   Widget build(BuildContext context) {
     final currentUser = Provider.of<UserProvider>(context);
-    final imageUrl = "https://tronnshare.com/assets/user/images/profile/" +
-        currentUser.userModel.image;
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(
@@ -30,7 +28,9 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
             ),
             CircleAvatar(
               backgroundImage: (currentUser.userModel.image != null)
-                  ? NetworkImage(imageUrl)
+                  ? NetworkImage(
+                      "https://tronnshare.com/assets/user/images/profile/" +
+                          currentUser.userModel.image)
                   : AssetImage('assets/images/logo.png'),
               radius: 50.0,
             ),

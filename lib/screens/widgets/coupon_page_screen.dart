@@ -2,6 +2,7 @@ import 'package:tronnshare/providers/UserProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter/services.dart';
 
 class CouponPagecreen extends StatelessWidget {
   const CouponPagecreen({Key key}) : super(key: key);
@@ -9,7 +10,9 @@ class CouponPagecreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final currentUser = Provider.of<UserProvider>(context);
+    final _wkey = GlobalKey<ScaffoldState>();
     return Scaffold(
+      key: _wkey,
       backgroundColor: Color(0xFF000036),
       appBar: AppBar(
         elevation: 0.0,
@@ -103,6 +106,18 @@ class CouponPagecreen extends StatelessWidget {
                                           ],
                                         ),
                                       ),
+                                      IconButton(
+                                          icon: Icon(Icons.file_download),
+                                          color: Color(0xFF000036),
+                                          onPressed: () {
+                                            Clipboard.setData(ClipboardData(
+                                                text: currentUser
+                                                    .couponList[index].code));
+                                            _wkey.currentState
+                                                .showSnackBar(SnackBar(
+                                              content: Text("Copied"),
+                                            ));
+                                          })
                                     ],
                                   ),
                                 ),

@@ -65,9 +65,6 @@ class _SignUpFormState extends State<SignUpForm> {
                 TextFormField(
                   controller: user.password,
                   validator: (password) {
-                    Pattern pattern =
-                        r'^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$';
-                    RegExp reqex = new RegExp(pattern);
                     if (password.isEmpty)
                       return 'Password Field is required';
                     else if (password.length <= 6)

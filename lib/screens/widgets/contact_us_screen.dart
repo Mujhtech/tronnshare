@@ -29,7 +29,7 @@ class ContactUsPageScreen extends StatelessWidget {
                 color: Color(0xFF000036),
               ),
               title: Text(
-                'contact@tronnshare.com',
+                'info@tronnshare.com',
                 style: TextStyle(
                   fontSize: 18.0,
                   color: Color(0xFF000036),
@@ -46,7 +46,7 @@ class ContactUsPageScreen extends StatelessWidget {
                 color: Color(0xFF000036),
               ),
               title: Text(
-                '+2347063148208',
+                '+2349035170697',
                 style: TextStyle(
                   fontSize: 18.0,
                   color: Color(0xFF000036),
