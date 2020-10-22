@@ -89,7 +89,8 @@ class UserService {
     return userJson["message"];
   }
 
-  Future<Map> getSpillOver(int id, String accesstokenUser) async {
+  Future<Map<String, dynamic>> getSpillOver(
+      int id, String accesstokenUser) async {
     final url = '$baseUrl/get-spill-over/$id';
     Map<String, String> jsonHeader = {
       "Accept": "application/json",
@@ -105,6 +106,8 @@ class UserService {
     if (res.statusCode != 200) {
       throw HTTPException(res.statusCode, userJson["message"]);
     }
+
+    print(userJson);
 
     return userJson;
   }
@@ -126,8 +129,13 @@ class UserService {
     return userJson["message"];
   }
 
-  Future<Map> withdrawLocallly(String type, String amount, String bankacctno,
-      String bankacctname, String bankname, String accesstokenUser) async {
+  Future<Map<String, dynamic>> withdrawLocallly(
+      String type,
+      String amount,
+      String bankacctno,
+      String bankacctname,
+      String bankname,
+      String accesstokenUser) async {
     final url = '$baseUrl/withdraw-local';
 
     String jsonRequest = '{"type": "' +
@@ -154,8 +162,8 @@ class UserService {
     return userJson;
   }
 
-  Future<Map> withdrawTron(String type, String amount, String tronwallet,
-      String accesstokenUser) async {
+  Future<Map<String, dynamic>> withdrawTron(String type, String amount,
+      String tronwallet, String accesstokenUser) async {
     final url = '$baseUrl/withdraw-tron';
 
     String jsonRequest = '{"type": "' +

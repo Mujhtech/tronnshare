@@ -132,8 +132,9 @@ class UserProvider extends ChangeNotifier {
       loadingStatus = StatusLoading.Loading;
       notifyListeners();
       final res = await _userService.getSpillOver(id, current_access_token);
+      print(res);
       resMessage = res["message"];
-      currentBalance = res["new_balance"].toDouble();
+      currentBalance = double.parse(res["new_balance"]);
       currentSpillOver = double.parse(res["new_spill_over"]);
       loadingStatus = StatusLoading.Finish;
       notifyListeners();
@@ -192,7 +193,7 @@ class UserProvider extends ChangeNotifier {
           bankname.text,
           current_access_token);
       resMessage = res["message"];
-      currentBalance = res["new_balance"].toDouble();
+      currentBalance = double.parse(res["new_balance"]);
       currentSpillOver = double.parse(res["new_spill_over"]);
       withdrawalList =
           await _userService.getWithdrawalList(current_access_token);
@@ -217,7 +218,7 @@ class UserProvider extends ChangeNotifier {
       final res = await _userService.withdrawTron(
           withdrawtype, amount.text, tronwallet.text, current_access_token);
       resMessage = res["message"];
-      currentBalance = res["new_balance"].toDouble();
+      currentBalance = double.parse(res["new_balance"]);
       currentSpillOver = double.parse(res["new_spill_over"]);
       print(userModel.walletbalance);
       withdrawalList =

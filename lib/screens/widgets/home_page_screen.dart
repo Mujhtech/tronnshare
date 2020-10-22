@@ -370,11 +370,13 @@ class _HomePageScreenState extends State<HomePageScreen> {
                                   Scaffold.of(context).showSnackBar(SnackBar(
                                     content: Text(currentUser.resMessage),
                                   ));
+                                } else {
+                                  Scaffold.of(context).showSnackBar(SnackBar(
+                                    content: Text(
+                                        'You have successfully earn today spill over'),
+                                  ));
                                 }
                                 currentUser.userClickShare(false);
-                                Scaffold.of(context).showSnackBar(SnackBar(
-                                  content: Text(currentUser.resMessage),
-                                ));
                               },
                               color: Color(0xFF000036),
                               shape: RoundedRectangleBorder(

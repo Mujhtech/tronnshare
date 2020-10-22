@@ -71,23 +71,33 @@ class TransactionListWidget extends StatelessWidget {
                                   color: Color(0xFF000036),
                                 ),
                               ),
-                        status == 2
-                            ? Text(
-                                "Pending",
-                                style: GoogleFonts.spartan(
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.green,
-                                ),
-                              )
-                            : Text(
-                                'Success',
-                                style: GoogleFonts.spartan(
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.blue,
-                                ),
-                              ),
+                        if (status == 2)
+                          Text(
+                            "Pending",
+                            style: GoogleFonts.spartan(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.blue,
+                            ),
+                          )
+                        else if (status == 3)
+                          Text(
+                            'Reject',
+                            style: GoogleFonts.spartan(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.red,
+                            ),
+                          )
+                        else
+                          Text(
+                            'Success',
+                            style: GoogleFonts.spartan(
+                              fontSize: 10,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.green,
+                            ),
+                          ),
                       ],
                     ),
                   ],
